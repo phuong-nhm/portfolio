@@ -16,21 +16,6 @@ export default function SocialLinks() {
       url: DATA.contact.social.LinkedIn.url,
       icon: DATA.contact.social.LinkedIn.icon,
     },
-    {
-      name: "Instagram",
-      url: DATA.contact.social.Instagram.url,
-      icon: DATA.contact.social.Instagram.icon,
-    },
-    {
-      name: "Twitter",
-      url: DATA.contact.social.Twitter.url,
-      icon: DATA.contact.social.Twitter.icon,
-    },
-    {
-      name: "YouTube",
-      url: DATA.contact.social.Youtube.url,
-      icon: DATA.contact.social.Youtube.icon,
-    },
   ];
 
   return (

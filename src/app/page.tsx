@@ -14,21 +14,7 @@ import Markdown from "react-markdown";
 export default function Page() {
   const webProjects = DATA.projects
     .filter((p) => (p.category as readonly string[]).includes("Web App"))
-    .slice(0, 2);
-  const mobileProjects = DATA.projects
-    .filter((p) => (p.category as readonly string[]).includes("Mobile App"))
-    .slice(0, 2);
-  const mlProjects = DATA.projects
-    .filter((p) =>
-      (p.category as readonly string[]).includes("Machine Learning"),
-    )
-    .slice(0, 2);
-  const motionProjects = DATA.projects
-    .filter((p) => (p.category as readonly string[]).includes("Motion"))
-    .slice(0, 2);
-  const designProjects = DATA.projects
-    .filter((p) => (p.category as readonly string[]).includes("Design"))
-    .slice(0, 2);
+    .slice(0, 3);
 
   return (
     <main className="flex flex-col min-h-dvh space-y-12">
@@ -53,20 +39,21 @@ export default function Page() {
 
               <FadeIn delay={0.1} distance={12}>
                 <h1 className="text-3xl font-bold tracking-tight sm:text-5xl xl:text-6xl/none">
-                  Hi, I&apos;m {DATA.name.split(" ")[0]} 👋
+                  Hi, I&apos;m {DATA.name.split(" ").slice(-2).join(" ")} 👋
                 </h1>
               </FadeIn>
 
               <FadeIn delay={0.16} distance={10}>
                 <p className="text-base sm:text-lg font-semibold text-primary/90">
-                  Full-Stack Developer &amp; Motion Designer
+                  Backend Developer
                 </p>
               </FadeIn>
 
               <FadeIn delay={0.22} distance={10}>
                 <p className="max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  I build scalable web applications using React, Next.js, and
-                  Laravel. Also create motion graphics and 3D visuals.
+                  I build scalable web applications using ASP.NET Core, Spring
+                  Boot, and React/Next.js, with hands-on AWS deployment
+                  experience.
                 </p>
               </FadeIn>
 
@@ -79,7 +66,7 @@ export default function Page() {
                     className="rounded-lg cursor-pointer font-medium gap-1.5 hover:bg-muted shadow-sm"
                     asChild
                   >
-                    <Link href="#contact" aria-label="Contact Ferry Hasan">
+                    <Link href="#contact" aria-label="Contact me">
                       <MailIcon className="size-3.5 text-muted-foreground" />
                       Contact Me
                     </Link>
@@ -113,11 +100,11 @@ export default function Page() {
               id="projects-heading"
               className="text-2xl font-bold tracking-tight sm:text-3xl"
             >
-              Projects by Category
+              Projects
             </h2>
             <p className="text-xs sm:text-sm text-muted-foreground">
-              Selected works across web engineering, mobile development, machine
-              learning, motion design, and 3D visual.
+              Selected web applications I&apos;ve built, from backend
+              architecture to AWS deployment.
             </p>
           </div>
         </FadeIn>
@@ -141,146 +128,6 @@ export default function Page() {
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {webProjects.map((project) => (
-                <ProjectCard
-                  key={project.title}
-                  href={project.href}
-                  title={project.title}
-                  description={project.description}
-                  dates={project.dates}
-                  tags={project.technologies}
-                  image={project.image}
-                  image2={project.image2}
-                  video={project.video}
-                  design={project.design}
-                  links={project.links}
-                />
-              ))}
-            </div>
-          </FadeIn>
-
-          {/* 3.2 Mobile App Category */}
-          <FadeIn distance={8} className="space-y-4">
-            <div className="flex items-center justify-between border-b pb-2">
-              <div className="flex items-center gap-2">
-                <h3 className="text-base sm:text-lg font-bold">
-                  Mobile Applications
-                </h3>
-              </div>
-              <Link
-                href="/projects?category=Mobile App"
-                className="group inline-flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-primary"
-              >
-                See all
-                <ArrowRightIcon className="size-3 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {mobileProjects.map((project) => (
-                <ProjectCard
-                  key={project.title}
-                  href={project.href}
-                  title={project.title}
-                  description={project.description}
-                  dates={project.dates}
-                  tags={project.technologies}
-                  image={project.image}
-                  image2={project.image2}
-                  video={project.video}
-                  design={project.design}
-                  links={project.links}
-                />
-              ))}
-            </div>
-          </FadeIn>
-
-          {/* 3.3 ML/AI Category */}
-          <FadeIn distance={8} className="space-y-4">
-            <div className="flex items-center justify-between border-b pb-2">
-              <div className="flex items-center gap-2">
-                <h3 className="text-base sm:text-lg font-bold">
-                  AI &amp; Machine Learning
-                </h3>
-              </div>
-              <Link
-                href="/projects?category=Machine Learning"
-                className="group inline-flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-primary"
-              >
-                See all
-                <ArrowRightIcon className="size-3 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {mlProjects.map((project) => (
-                <ProjectCard
-                  key={project.title}
-                  href={project.href}
-                  title={project.title}
-                  description={project.description}
-                  dates={project.dates}
-                  tags={project.technologies}
-                  image={project.image}
-                  image2={project.image2}
-                  video={project.video}
-                  design={project.design}
-                  links={project.links}
-                />
-              ))}
-            </div>
-          </FadeIn>
-
-          {/* 3.4 Motion Category */}
-          <FadeIn distance={8} className="space-y-4">
-            <div className="flex items-center justify-between border-b pb-2">
-              <div className="flex items-center gap-2">
-                <h3 className="text-base sm:text-lg font-bold">
-                  Motion Design &amp; Visual FX
-                </h3>
-              </div>
-              <Link
-                href="/projects?category=Motion"
-                className="group inline-flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-primary"
-              >
-                See all
-                <ArrowRightIcon className="size-3 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {motionProjects.map((project) => (
-                <ProjectCard
-                  key={project.title}
-                  href={project.href}
-                  title={project.title}
-                  description={project.description}
-                  dates={project.dates}
-                  tags={project.technologies}
-                  image={project.image}
-                  image2={project.image2}
-                  video={project.video}
-                  design={project.design}
-                  links={project.links}
-                />
-              ))}
-            </div>
-          </FadeIn>
-
-          {/* 3.5 Design Category */}
-          <FadeIn distance={8} className="space-y-4">
-            <div className="flex items-center justify-between border-b pb-2">
-              <div className="flex items-center gap-2">
-                <h3 className="text-base sm:text-lg font-bold">
-                  3D Art &amp; Design
-                </h3>
-              </div>
-              <Link
-                href="/projects?category=Design"
-                className="group inline-flex items-center gap-1 text-xs font-medium text-muted-foreground hover:text-primary"
-              >
-                See all
-                <ArrowRightIcon className="size-3 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {designProjects.map((project) => (
                 <ProjectCard
                   key={project.title}
                   href={project.href}
@@ -396,29 +243,6 @@ export default function Page() {
                   <StaggerItem key={skill} distance={6}>
                     <li className="text-xs font-medium border bg-background/80 px-2.5 py-1 rounded-lg text-foreground/90 hover:bg-muted list-none transition-colors">
                       {skill}
-                    </li>
-                  </StaggerItem>
-                ))}
-              </StaggerContainer>
-            </div>
-          </FadeIn>
-
-          {/* Design Tools */}
-          <FadeIn delay={0.08}>
-            <div className="rounded-lg border bg-card/50 p-4 space-y-3">
-              <h3 className="text-sm font-semibold text-foreground">
-                Motion Design &amp; UI/UX
-              </h3>
-              <StaggerContainer
-                staggerChildren={0.03}
-                className="flex flex-wrap gap-1.5"
-                role="list"
-                aria-label="Design tools"
-              >
-                {DATA.skills2.map((skill2) => (
-                  <StaggerItem key={skill2} distance={6}>
-                    <li className="text-xs font-medium border bg-background/80 px-2.5 py-1 rounded-lg text-foreground/90 hover:bg-muted list-none transition-colors">
-                      {skill2}
                     </li>
                   </StaggerItem>
                 ))}
@@ -566,10 +390,7 @@ export default function Page() {
                 className="rounded-lg px-6 cursor-pointer font-medium gap-2 shadow-sm"
                 asChild
               >
-                <Link
-                  href={DATA.contact.emailUrl}
-                  aria-label="Send email to Ferry Hasan"
-                >
+                <Link href={DATA.contact.emailUrl} aria-label="Send email">
                   <MailIcon className="size-4" />
                   Drop Me an Email
                 </Link>
